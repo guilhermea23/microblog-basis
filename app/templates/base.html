@@ -1,25 +1,37 @@
-<html>
-<head>
+{% extends "bootstrap/base.html" %}
+{% block title %}
   {% if title %}
-  <title>{{ title }} - Microblog</title>
+    {{ title }} - Microblog
   {% else %}
-  <title>Bem vindo no Microblog</title>
+    Bem vindo no Microblog
   {% endif %}
-</head>
-<body>
-  <div>Microblog:
-    <a href="{{ url_for('index') }}">Home</a>
-    <a href="{{ url_for('login') }}">Login</a></div>
-  <hr>
+{% endblock %}
+
+{% block navbar %}
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <a href="#" class="navbar-brand">Microblog</a>
+      <ul class="nav navbar-nav">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block content %}
+<div class="container">
   {% with messages = get_flashed_messages() %}
   {% if messages %}
+  <div class="alert alert-success" role="alert">
     <ul>
       {% for message in messages %}
         <li>{{message}}</li>
       {% endfor %}
     </ul>
+  </div>
   {% endif %}
   {% endwith %}
-    {% block content %}{% endblock %}
-</body>
-</html>
+    {% block app_content %}{% endblock %}
+</div>
+{% endblock %}
