@@ -1,10 +1,15 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 WORKDIR /app
 
 COPY . .
 
-RUN apt install python3-pip
+RUN sudo apt install python3-pip
+
+RUN pip --version
+
+RUN pip freeze > requirements.txt
+
 RUN pip install -r requirements.txt
 
 EXPOSE 8080
