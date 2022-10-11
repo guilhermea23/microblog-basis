@@ -1,16 +1,15 @@
 FROM fedora:27
 
-LABEL maintainer="do-not-reply@redhat.com"
-LABEL version="1.0"
-
 WORKDIR /app
 
 COPY . .
+
+RUN sudo apt update && sudo apt install python3-pip
+
+RUN pip --version
 
 RUN pip install -r requirements.txt
 
 EXPOSE 8080
 
-USER user
-
-CMD ["python3", "/app/microblog.py"]
+CMD ["python3", "microblog.py"]
