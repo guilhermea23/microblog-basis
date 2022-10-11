@@ -1,10 +1,10 @@
-FROM fedora:27
+FROM ubuntu:latest
 
 WORKDIR /app
 
 COPY . .
 
-RUN sudo yum install python3 python3-wheel
+RUN sudo apt update && sudo apt install python3-pip
 
 RUN pip --version
 
