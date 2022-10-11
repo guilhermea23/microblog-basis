@@ -4,11 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN sudo apt update && sudo apt install python3-pip
-
-RUN pip --version
-
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 EXPOSE 8080
 
