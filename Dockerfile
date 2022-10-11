@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN sudo apt update && sudo apt install python3-pip
+RUN sudo dnf install --assumeyes python3-pip
 
 RUN pip --version
 
