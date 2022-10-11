@@ -1,14 +1,12 @@
-FROM ubuntu:20.04
+FROM python:latest
 
 WORKDIR /app
 
-COPY . .
+COPY ./ .
 
-RUN sudo apt install python3-pip
+RUN python3 -m venv venv
 
 RUN pip --version
-
-RUN pip freeze > requirements.txt
 
 RUN pip install -r requirements.txt
 
