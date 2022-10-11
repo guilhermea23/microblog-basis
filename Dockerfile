@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN sudo dnf install --assumeyes python3-pip
+RUN sudo yum install python3 python3-wheel
 
 RUN pip --version
 
