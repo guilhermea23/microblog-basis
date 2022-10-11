@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY . .
 
+RUN apt install python3-pip
 RUN pip install -r requirements.txt
 
 EXPOSE 8080
